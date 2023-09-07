@@ -119,7 +119,7 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                         {
                             final PendingResult broadcastResult = this.goAsync();
 
-                            Map<String, Object> arguments = new HashMap<String, Object>();
+                            Map<String, Object> arguments = new HashMap<>();
                             arguments.put("address", device.getAddress());
                             arguments.put("variant", pairingVariant);
 
@@ -174,7 +174,7 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                         {
                             final int pairingKey = intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_KEY, BluetoothDevice.ERROR);
 
-                            Map<String, Object> arguments = new HashMap<String, Object>();
+                            Map<String, Object> arguments = new HashMap<>();
                             arguments.put("address", device.getAddress());
                             arguments.put("variant", pairingVariant);
                             arguments.put("pairingKey", pairingKey);
@@ -225,7 +225,7 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                         {
                             final int pairingKey = intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_KEY, BluetoothDevice.ERROR);
 
-                            Map<String, Object> arguments = new HashMap<String, Object>();
+                            Map<String, Object> arguments = new HashMap<>();
                             arguments.put("address", device.getAddress());
                             arguments.put("variant", pairingVariant);
                             arguments.put("pairingKey", pairingKey);
@@ -256,8 +256,6 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                 switch (action) {
                     case BluetoothDevice.ACTION_FOUND -> {
                         final BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                        //final BluetoothClass deviceClass = intent.getParcelableExtra(BluetoothDevice.EXTRA_CLASS); // @TODO . !BluetoothClass!
-                        //final String extraName = intent.getStringExtra(BluetoothDevice.EXTRA_NAME); // @TODO ? !EXTRA_NAME!
                         final int deviceRSSI = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE);
                         Map<String, Object> discoveryResult = new HashMap<>();
                         discoveryResult.put("address", device.getAddress());
