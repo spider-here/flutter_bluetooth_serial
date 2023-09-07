@@ -15,12 +15,12 @@ public abstract class BluetoothConnection
 {
     protected static final UUID DEFAULT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    protected BluetoothAdapter bluetoothAdapter;
+    protected final BluetoothAdapter bluetoothAdapter;
 
     protected ConnectionThread connectionThread = null;
 
     public boolean isConnected() {
-        return connectionThread != null && connectionThread.requestedClosing != true;
+        return connectionThread != null && !connectionThread.requestedClosing;
     }
 
 
